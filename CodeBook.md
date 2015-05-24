@@ -1,5 +1,6 @@
 # How this script works
-0. The UCI HAR Dataset is downloaded and extracted using **getData** (optional, uncomment line 75 to do this)
++ The UCI HAR Dataset is downloaded and extracted using **getData** (optional, uncomment line 75 to do this)
+
 1. The train and test datasets are loaded, labeled, and merged together in the **loadData** function.
   1. Variable labels are loaded into a labels variable from the features.txt file.
   2. Activity labels are loaded into the activities variable from the activity_labels.txt file, the variable is saved so it can be accessed outside of **loadData**.
@@ -9,6 +10,6 @@
     3. All three dataframes are combined using cbind.
   4. The test and train dataframes are merged using rbind.
 2. The data is narrowed to include only the subject, activity, and mean and standard deviation fields by subsetting to a general expression in **narrowData**.
-3. Descriptive activity names are applied in **applyActivity** by factoring data$activity with labels from the activities variable created in 1.2. (data$subject is also factored).
-4. Descriptive variable names were applied to the data in step 1.3.2.
+3. Descriptive activity names are applied in **applyActivity** by factoring data$activity with labels from the activities variable created in 1.ii. (data$subject is also factored).
+4. Descriptive variable names were applied to the data in step 1.iii.b.
 5. Data is narrowed to the average of each variable grouped by activity and subject in **createTidy** by applying group\_by and summarise\_each to the data. The results are written to result.txt.
